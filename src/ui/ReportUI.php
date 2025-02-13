@@ -3,6 +3,7 @@
 namespace Sherpa\Test\ui;
 
 use Sherpa\Test\core\TestState;
+use Sherpa\Ui\rendering\SpecialProperty;
 use Sherpa\Ui\rendering\UI;
 
 class ReportUI extends UI
@@ -26,6 +27,7 @@ class ReportUI extends UI
             "Report" => [
                 "State" => "success",
             ],
+            "Slot" => SpecialProperty::SLOT,
         ];
     }
 }
