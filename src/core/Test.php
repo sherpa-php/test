@@ -15,11 +15,6 @@ interface Test
     public function beforeEachTest(): void;
 
     /**
-     * On During Test event method.
-     */
-    public function handle(): void;
-
-    /**
      * On After each test event method.
      */
     public function afterEachTest(): void;
