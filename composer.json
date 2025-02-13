@@ -1,0 +1,17 @@
+{
+    "name": "sherpa/test",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sherpa\\Test\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "belicfr",
+            "email": "96206878+belicfr@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
