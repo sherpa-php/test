@@ -6,11 +6,11 @@ use Sherpa\Test\ui\ReportUI;
 function success(): void
 {
     new ReportUI(TestState::SUCCESS)
-        ->render("<p>Test has succeeded.</p>");
+        ->render("<p style='margin: 0; padding: 0;'>Test has succeeded.</p>");
 }
 
 function fail(): void
 {
     new ReportUI(TestState::FAIL)
-        ->render("<p>Test has failed.</p>");
+        ->render("<p style='margin: 0; padding: 0;'>Test has failed.</p>");
 }
