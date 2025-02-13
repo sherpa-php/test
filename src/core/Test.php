@@ -5,6 +5,7 @@ namespace Sherpa\Test\core;
 abstract class Test
 {
     public protected(set) ?string $name = null;
+    public protected(set) ?string $description = null;
 
     /**
      * On Startup event method.
