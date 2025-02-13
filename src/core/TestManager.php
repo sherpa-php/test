@@ -5,6 +5,7 @@ namespace Sherpa\Test\core;
 use ReflectionClass;
 use ReflectionException;
 use Sherpa\Sherpa\test\exceptions\InvalidTestClassException;
+use Sherpa\Test\ui\ReportUI;
 
 class TestManager
 {
@@ -61,9 +62,11 @@ class TestManager
 
         foreach ($tests as $test)
         {
-            $instance->beforeEachTest();
-            $instance->$test();
-            $instance->afterEachTest();
+            new ReportUI()->render();
+
+//            $instance->beforeEachTest();
+//            $instance->$test();
+//            $instance->afterEachTest();
         }
 
         $instance->end();
