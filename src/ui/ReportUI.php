@@ -2,6 +2,7 @@
 
 namespace Sherpa\Test\ui;
 
+use Sherpa\Test\core\TestState;
 use Sherpa\Ui\rendering\UI;
 
 class ReportUI extends UI
@@ -12,7 +13,9 @@ class ReportUI extends UI
     protected ?string $stylesheetPath
         = __DIR__ . "/rendering/report.css";
 
-    public function __construct()
+    private string $state;
+
+    public function __construct(TestState $state)
     {
         parent::__construct("test", "Sherpa Test");
     }
