@@ -5,7 +5,7 @@
  */
 function overlay(): void
 {
-    echo "<style>body { padding: 50px; }</style>
+    echo "<style>body { padding: 50px; font-family: monospace; }</style>
 
           <div id='sherpa_test__overlay' 
                style='
