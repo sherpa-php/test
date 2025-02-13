@@ -33,6 +33,6 @@ abstract class Test
     public function name(): string
     {
         return $this->name
-            ?? basename('\\', '/', static::class);
+            ?? str_replace('\\', '/', basename(static::class));
     }
 }
