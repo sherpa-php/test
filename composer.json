@@ -14,6 +14,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "sherpa/exceptions": "dev-dev"
+        "sherpa/exceptions": "dev-dev",
+        "sherpa/ui": "dev-dev"
     }
 }
