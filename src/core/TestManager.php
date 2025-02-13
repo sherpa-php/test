@@ -48,7 +48,7 @@ class TestManager
      */
     public static function run(string $testClass): void
     {
-        if (!in_array(Test::class, class_implements($testClass)))
+        if (!is_subclass_of($testClass, Test::class))
         {
             throw new InvalidTestClassException($testClass);
         }
@@ -58,10 +58,18 @@ class TestManager
 
         $instance = new $testClass();
 
-        echo "<h1 style='font-weight: 100; 
-                    margin-bottom: 50px; 
+        echo "<h1 style='
+                    font-weight: 100; 
                     font-size: 3rem;
                   '>{$instance->name()}</h1>";
+
+        echo "<p style='
+                   font-size: 1.25rem; 
+                   color: grey; 
+                   margin-bottom: 50px;
+                 '>$instance->description</p>";
+
+        require_once __DIR__ . "/utils.php";
 
         $instance->startup();
 
