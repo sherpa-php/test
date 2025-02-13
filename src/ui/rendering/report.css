@@ -1,18 +1,19 @@
 sherpa[component=test] {
   padding: 10px;
-  border: solid 1px;
+  border: solid 1px transparent;
   border-radius: 10px;
   display: block;
+  background-color: white;
   font-family: monospace;
 }
 sherpa[component=test].report-success {
-  border-color: #e7ffe7;
-  background-color: #2fdc2f;
+  background-color: #e7ffe7;
+  border-color: #2fdc2f;
   color: #008500;
 }
 sherpa[component=test].report-fail {
-  border-color: #ffe7e7;
-  background-color: #dc2f2f;
+  background-color: #ffe7e7;
+  border-color: #dc2f2f;
   color: #850000;
 }
 sherpa[component=test]:not(:last-of-type) {

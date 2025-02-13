@@ -9,24 +9,26 @@ $borderFail: #ffe7e7
 sherpa[component="test"]
   padding: 10px
 
-  border: solid 1px
+  border: solid 1px transparent
   border-radius: 10px
 
   display: block
 
+  background-color: white
+
   font-family: monospace
 
   &.report-success
-    border-color: $borderSuccess
+    background-color: $borderSuccess
 
-    background-color: $bgSuccess
+    border-color: $bgSuccess
 
     color: $textSuccess
 
   &.report-fail
-    border-color: $borderFail
+    background-color: $borderFail
 
-    background-color: $bgFail
+    border-color: $bgFail
 
     color: $textFail
 
