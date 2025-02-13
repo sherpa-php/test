@@ -1,0 +1,44 @@
+$bgSuccess: #2fdc2f
+$textSuccess: #008500
+$borderSuccess: #e7ffe7
+
+$bgFail: #dc2f2f
+$textFail: #850000
+$borderFail: #ffe7e7
+
+sherpa[component="test"]
+  padding: 10px
+
+  border: solid 1px
+  border-radius: 10px
+
+  display: block
+
+  font-family: monospace
+
+  &.report-success
+    border-color: $borderSuccess
+
+    background-color: $bgSuccess
+
+    color: $textSuccess
+
+  &.report-fail
+    border-color: $borderFail
+
+    background-color: $bgFail
+
+    color: $textFail
+
+  &:not(:last-of-type)
+    margin-bottom: 20px
+
+  > header
+    margin-bottom: 10px
+
+    font-size: .7rem
+
+  > pre
+    margin: 0
+
+    font-size: .8rem
