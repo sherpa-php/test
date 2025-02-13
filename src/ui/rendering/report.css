@@ -23,6 +23,9 @@ sherpa[component=test] > header {
   margin-bottom: 10px;
   font-size: 0.7rem;
 }
+sherpa[component=test] > header > span.result-label {
+  text-transform: uppercase;
+}
 sherpa[component=test] > pre {
   margin: 0;
   font-size: 0.8rem;
