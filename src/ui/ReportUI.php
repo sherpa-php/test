@@ -19,6 +19,8 @@ class ReportUI extends UI
     public function __construct(TestState $state)
     {
         parent::__construct("test", "Sherpa Test");
+
+        $this->state = $state->value;
     }
 
     protected function props(): array
