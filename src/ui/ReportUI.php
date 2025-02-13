@@ -25,7 +25,7 @@ class ReportUI extends UI
     {
         return [
             "Report" => [
-                "State" => "success",
+                "State" => $this->state,
             ],
             "Slot" => SpecialProperty::SLOT,
         ];
