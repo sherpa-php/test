@@ -58,15 +58,18 @@ class TestManager
 
         $instance = new $testClass();
 
+        echo "<h1 style='font-weight: 100; 
+                    margin-bottom: 50px; 
+                    font-size: 3rem;
+                  '>{$instance->name()}</h1>";
+
         $instance->startup();
 
         foreach ($tests as $test)
         {
-            new ReportUI()->render();
-
-//            $instance->beforeEachTest();
-//            $instance->$test();
-//            $instance->afterEachTest();
+            $instance->beforeEachTest();
+            $instance->$test();
+            $instance->afterEachTest();
         }
 
         $instance->end();
