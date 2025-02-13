@@ -2,25 +2,36 @@
 
 namespace Sherpa\Test\core;
 
-interface Test
+abstract class Test
 {
+    public protected(set) ?string $name = null;
+
     /**
      * On Startup event method.
      */
-    public function startup(): void;
+    public abstract function startup(): void;
 
     /**
      * On Before each test event method.
      */
-    public function beforeEachTest(): void;
+    public abstract function beforeEachTest(): void;
 
     /**
      * On After each test event method.
      */
-    public function afterEachTest(): void;
+    public abstract function afterEachTest(): void;
 
     /**
      * On Ending event method.
      */
-    public function end(): void;
+    public abstract function end(): void;
+
+    /**
+     * @return string Test class' name
+     */
+    public function name(): string
+    {
+        return $this->name
+            ?? basename('\\', '/', static::class);
+    }
 }
