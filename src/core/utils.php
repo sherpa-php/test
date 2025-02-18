@@ -1,5 +1,6 @@
 <?php
 
+use Sherpa\Test\asserts\AssertFalsy;
 use Sherpa\Test\asserts\AssertTruly;
 use Sherpa\Test\core\TestState;
 use Sherpa\Test\ui\ReportUI;
@@ -55,5 +56,28 @@ function assertTruly(mixed $value, ?string $error = null): void
     {
         fail($error
             ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is not truly.");
+    }
+}
+
+/**
+ * Assert the value is falsy.
+ *
+ * @param mixed $value
+ * @param string|null $error (optional) error message
+ */
+function assertFalsy(mixed $value, ?string $error = null): void
+{
+    ob_start();
+    var_dump($value);
+    $valueAsString = trim(ob_get_clean());
+
+    if (new AssertFalsy($value)->handle())
+    {
+        success("<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is falsy.");
+    }
+    else
+    {
+        fail($error
+            ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is not falsy.");
     }
 }
