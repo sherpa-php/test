@@ -14,7 +14,7 @@ function success(?string $message = null): void
 
     $backtrace = debug_backtrace();
 
-    new ReportUI(TestState::SUCCESS, $backtrace[0]["file"], $backtrace[0]["line"])
+    new ReportUI(TestState::SUCCESS, $backtrace[1]["file"], $backtrace[1]["line"])
         ->render("<p style='margin: 0; padding: 0;'>$message</p>");
 }
 
@@ -27,7 +27,7 @@ function fail(?string $error = null): void
     
     $backtrace = debug_backtrace();
 
-    new ReportUI(TestState::FAIL, $backtrace[0]["file"], $backtrace[0]["line"])
+    new ReportUI(TestState::FAIL, $backtrace[1]["file"], $backtrace[1]["line"])
         ->render("<p style='margin: 0; padding: 0;'>$error</p>");
 }
 
