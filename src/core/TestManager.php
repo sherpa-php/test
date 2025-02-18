@@ -75,6 +75,10 @@ class TestManager
 
         foreach ($tests as $test)
         {
+            echo "<h2 style='
+                        font-weight: 300;
+                        font-size: 2rem;
+                      '>$test</h2>";
             $instance->beforeEachTest();
             $instance->$test();
             $instance->afterEachTest();
