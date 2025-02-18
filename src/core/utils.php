@@ -51,9 +51,7 @@ function assertTruly(mixed $value, ?string $error = null): void
 
     $success = "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is truly.";
     $error = $error
-        ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>
-              $valueAsString
-            </pre> 
+        ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> 
             is not truly.";
 
     makeAssert(new AssertTruly($value), $success, $error);
