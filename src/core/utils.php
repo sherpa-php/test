@@ -1,6 +1,6 @@
 <?php
 
-use Sherpa\Test\asserts\Assert;
+use Sherpa\Test\asserts\AssertInterface;
 use Sherpa\Test\asserts\AssertFalsy;
 use Sherpa\Test\asserts\AssertTruly;
 use Sherpa\Test\core\TestState;
@@ -137,7 +137,7 @@ function assertFalse(mixed $value, ?string $error = null): void
     }
 }
 
-function makeAssert(Assert $assert, string $success, string $error): void
+function makeAssert(AssertInterface $assert, string $success, string $error): void
 {
     if ($assert->handle())
     {
