@@ -10,8 +10,6 @@ use Sherpa\Test\asserts\Assert;
  */
 class AssertFalsy implements Assert
 {
-    private mixed $value;
-
     public function __construct(mixed $value)
     {
         $this->value = $value;

@@ -8,8 +8,6 @@ namespace Sherpa\Test\asserts;
  */
 class AssertFalse implements Assert
 {
-    private mixed $value;
-
     public function __construct(mixed $value)
     {
         $this->value = $value;

@@ -11,5 +11,7 @@ namespace Sherpa\Test\asserts;
  */
 interface Assert
 {
+    public mixed $value {get; set;}
+
     public function handle(): bool;
 }
