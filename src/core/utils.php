@@ -37,12 +37,17 @@ function fail(?string $error = null): void
 
 function assertTruly(mixed $value, ?string $error = null): void
 {
+    ob_start();
+    var_dump($value);
+    $valueAsString = trim(ob_get_clean());
+
     if (new AssertTruly($value)->handle())
     {
-        success("<code>$value</code> is truly.");
+        success("<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is truly.");
     }
     else
     {
-        fail($error ?? "<code>$value</code> is not truly.");
+        fail($error
+            ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is not truly.");
     }
 }
