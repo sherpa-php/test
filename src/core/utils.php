@@ -31,7 +31,7 @@ function fail(?string $error = null): void
  * Assert Functions
  */
 
-function assertTruly(mixed $value, string $error): void
+function assertTruly(mixed $value, ?string $error = null): void
 {
     if (new AssertTruly($value)->handle())
     {
@@ -39,6 +39,6 @@ function assertTruly(mixed $value, string $error): void
     }
     else
     {
-        fail("<code>$value</code> is not truly.");
+        fail($error ?? "<code>$value</code> is not truly.");
     }
 }
