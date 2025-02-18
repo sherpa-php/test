@@ -8,6 +8,8 @@ use Sherpa\Test\asserts\AssertTruly;
 use Sherpa\Test\core\TestState;
 use Sherpa\Test\ui\ReportUI;
 
+const BACKTRACE_TEST_CLASS_INDEX = 2;
+
 function success(?string $message = null): void
 {
     if ($message === null)
@@ -17,7 +19,9 @@ function success(?string $message = null): void
 
     $backtrace = debug_backtrace();
 
-    new ReportUI(TestState::SUCCESS, $backtrace[1]["file"], $backtrace[1]["line"])
+    new ReportUI(TestState::SUCCESS,
+                 $backtrace[BACKTRACE_TEST_CLASS_INDEX]["file"],
+                 $backtrace[BACKTRACE_TEST_CLASS_INDEX]["line"])
         ->render("<p style='margin: 0; padding: 0;'>$message</p>");
 }
 
@@ -30,7 +34,9 @@ function fail(?string $error = null): void
     
     $backtrace = debug_backtrace();
 
-    new ReportUI(TestState::FAIL, $backtrace[1]["file"], $backtrace[1]["line"])
+    new ReportUI(TestState::FAIL,
+                 $backtrace[BACKTRACE_TEST_CLASS_INDEX]["file"],
+                 $backtrace[BACKTRACE_TEST_CLASS_INDEX]["line"])
         ->render("<p style='margin: 0; padding: 0;'>$error</p>");
 }
 
