@@ -35,6 +35,12 @@ function fail(?string $error = null): void
  * Assert Functions
  */
 
+/**
+ * Assert the value is truly.
+ *
+ * @param mixed $value
+ * @param string|null $error (optional) error message
+ */
 function assertTruly(mixed $value, ?string $error = null): void
 {
     ob_start();
