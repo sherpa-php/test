@@ -23,8 +23,10 @@ function fail(?string $error = null): void
     {
         $error = "Test has failed.";
     }
+    
+    $backtrace = debug_backtrace();
 
-    new ReportUI(TestState::FAIL)
+    new ReportUI(TestState::FAIL, $backtrace[0]["file"], $backtrace[0]["line"])
         ->render("<p style='margin: 0; padding: 0;'>$error</p>");
 }
 
