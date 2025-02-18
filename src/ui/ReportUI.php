@@ -15,12 +15,16 @@ class ReportUI extends UI
         = __DIR__ . "/rendering/report.css";
 
     private string $state;
+    private ?string $file;
+    private ?int $line;
 
-    public function __construct(TestState $state)
+    public function __construct(TestState $state, ?string $file = null, ?int $line = null)
     {
         parent::__construct("test", "Sherpa Test");
 
         $this->state = $state->value;
+        $this->file = $file;
+        $this->line = $line;
     }
 
     protected function props(): array
@@ -28,6 +32,10 @@ class ReportUI extends UI
         return [
             "Report" => [
                 "State" => $this->state,
+            ],
+            "Backtrace" => [
+                "File" => $this->file ?? "Unknown File",
+                "Line" => $this->line ?? "",
             ],
             "Slot" => SpecialProperty::SLOT,
         ];

@@ -11,7 +11,9 @@ function success(?string $message = null): void
         $message = "Test has succeeded.";
     }
 
-    new ReportUI(TestState::SUCCESS)
+    $backtrace = debug_backtrace();
+
+    new ReportUI(TestState::SUCCESS, $backtrace[0]["file"], $backtrace[0]["line"])
         ->render("<p style='margin: 0; padding: 0;'>$message</p>");
 }
 
