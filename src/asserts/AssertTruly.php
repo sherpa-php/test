@@ -2,13 +2,11 @@
 
 namespace Sherpa\Test\asserts;
 
-use Sherpa\Test\asserts\Assert;
-
 /**
  * Assert class verifying
  * if the provided value is falsy.
  */
-class AssertFalsy implements Assert
+class AssertTruly implements Assert
 {
     private mixed $value;
 

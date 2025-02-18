@@ -8,7 +8,7 @@ use Sherpa\Test\asserts\Assert;
  * Assert class verifying
  * if the provided value is truly.
  */
-class AssertTruly implements Assert
+class AssertFalsy implements Assert
 {
     private mixed $value;
 
