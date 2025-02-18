@@ -1,5 +1,6 @@
 <?php
 
+use Sherpa\Test\asserts\Assert;
 use Sherpa\Test\asserts\AssertFalsy;
 use Sherpa\Test\asserts\AssertTruly;
 use Sherpa\Test\core\TestState;
@@ -48,15 +49,14 @@ function assertTruly(mixed $value, ?string $error = null): void
     var_dump($value);
     $valueAsString = trim(ob_get_clean());
 
-    if (new AssertTruly($value)->handle())
-    {
-        success("<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is truly.");
-    }
-    else
-    {
-        fail($error
-            ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is not truly.");
-    }
+    $success = "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is truly.";
+    $error = $error
+        ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>
+              $valueAsString
+            </pre> 
+            is not truly.";
+
+    makeAssert(new AssertTruly($value), $success, $error);
 }
 
 /**
@@ -71,13 +71,80 @@ function assertFalsy(mixed $value, ?string $error = null): void
     var_dump($value);
     $valueAsString = trim(ob_get_clean());
 
+    $success = "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is falsy.";
+    $error = $error
+        ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is not falsy.";
+
     if (new AssertFalsy($value)->handle())
     {
-        success("<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is falsy.");
+        success($success);
     }
     else
     {
-        fail($error
-            ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is not falsy.");
+        fail($error);
+    }
+}
+
+/**
+ * Assert the value is truly.
+ *
+ * @param mixed $value
+ * @param string|null $error (optional) error message
+ */
+function assertTrue(mixed $value, ?string $error = null): void
+{
+    ob_start();
+    var_dump($value);
+    $valueAsString = trim(ob_get_clean());
+
+    $success = "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is truly.";
+    $error = $error
+        ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is not truly.";
+
+    if (new AssertTruly($value)->handle())
+    {
+        success($success);
+    }
+    else
+    {
+        fail($error);
+    }
+}
+
+/**
+ * Assert the value is falsy.
+ *
+ * @param mixed $value
+ * @param string|null $error (optional) error message
+ */
+function assertFalse(mixed $value, ?string $error = null): void
+{
+    ob_start();
+    var_dump($value);
+    $valueAsString = trim(ob_get_clean());
+
+    $success = "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is falsy.";
+    $error = $error
+        ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is not falsy.";
+
+    if (new AssertFalsy($value)->handle())
+    {
+        success($success);
+    }
+    else
+    {
+        fail($error);
+    }
+}
+
+function makeAssert(Assert $assert, string $success, string $error): void
+{
+    if ($assert->handle())
+    {
+        success($success);
+    }
+    else
+    {
+        fail($error);
     }
 }
