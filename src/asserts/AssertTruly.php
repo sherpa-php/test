@@ -3,10 +3,12 @@
 namespace Sherpa\Test\asserts;
 
 /**
- * Assert class verifying
+ * AssertInterface class verifying
  * if the provided value is falsy.
  */
-class AssertTruly implements Assert
+class AssertTruly
+    extends Assert
+    implements AssertInterface
 {
     public function __construct(mixed $value)
     {

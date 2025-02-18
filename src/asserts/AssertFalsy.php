@@ -2,13 +2,15 @@
 
 namespace Sherpa\Test\asserts;
 
-use Sherpa\Test\asserts\Assert;
+use Sherpa\Test\asserts\AssertInterface;
 
 /**
- * Assert class verifying
+ * AssertInterface class verifying
  * if the provided value is truly.
  */
-class AssertFalsy implements Assert
+class AssertFalsy
+    extends Assert
+    implements AssertInterface
 {
     public function __construct(mixed $value)
     {
