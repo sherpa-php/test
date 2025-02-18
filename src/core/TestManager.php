@@ -76,6 +76,7 @@ class TestManager
         foreach ($tests as $test)
         {
             echo "<h2 style='
+                        margin-top: 75px;
                         font-weight: 300;
                         font-size: 2rem;
                       '>$test</h2>";
