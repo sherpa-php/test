@@ -1,7 +1,9 @@
 <?php
 
+use Sherpa\Test\asserts\AssertFalse;
 use Sherpa\Test\asserts\AssertInterface;
 use Sherpa\Test\asserts\AssertFalsy;
+use Sherpa\Test\asserts\AssertTrue;
 use Sherpa\Test\asserts\AssertTruly;
 use Sherpa\Test\core\TestState;
 use Sherpa\Test\ui\ReportUI;
@@ -73,14 +75,7 @@ function assertFalsy(mixed $value, ?string $error = null): void
     $error = $error
         ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is not falsy.";
 
-    if (new AssertFalsy($value)->handle())
-    {
-        success($success);
-    }
-    else
-    {
-        fail($error);
-    }
+    makeAssert(new AssertFalsy($value), $success, $error);
 }
 
 /**
@@ -99,14 +94,7 @@ function assertTrue(mixed $value, ?string $error = null): void
     $error = $error
         ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is not truly.";
 
-    if (new AssertTruly($value)->handle())
-    {
-        success($success);
-    }
-    else
-    {
-        fail($error);
-    }
+    makeAssert(new AssertTrue($value), $success, $error);
 }
 
 /**
@@ -125,14 +113,7 @@ function assertFalse(mixed $value, ?string $error = null): void
     $error = $error
         ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is not falsy.";
 
-    if (new AssertFalsy($value)->handle())
-    {
-        success($success);
-    }
-    else
-    {
-        fail($error);
-    }
+    makeAssert(new AssertFalse($value), $success, $error);
 }
 
 function makeAssert(AssertInterface $assert, string $success, string $error): void
