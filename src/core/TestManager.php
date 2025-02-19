@@ -33,7 +33,10 @@ class TestManager
 
             if (!empty($attributes))
             {
-                $testMethods[] = $method->getName();
+                $testMethods[] = [
+                    "method" => $method->getName(),
+                    "alias" => $attributes[0]->newInstance()->name,
+                ];
             }
         }
 
@@ -79,9 +82,9 @@ class TestManager
                         margin-top: 75px;
                         font-weight: 300;
                         font-size: 2rem;
-                      '>$test</h2>";
+                      '>{$test["alias"]}</h2>";
             $instance->beforeEachTest();
-            $instance->$test();
+            $instance->{$test["method"]}();
             $instance->afterEachTest();
         }
 
