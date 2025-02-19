@@ -35,7 +35,8 @@ class TestManager
             {
                 $testMethods[] = [
                     "method" => $method->getName(),
-                    "alias" => $attributes[0]->newInstance()->name,
+                    "alias" => $attributes[0]->newInstance()->name
+                        ?? $method->getName(),
                 ];
             }
         }
