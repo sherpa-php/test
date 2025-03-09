@@ -6,7 +6,7 @@ use Sherpa\Test\asserts\AssertInterface;
 
 /**
  * AssertInterface class verifying
- * if the provided value is truly.
+ * if the provided value is falsy.
  */
 class AssertFalsy
     extends Assert

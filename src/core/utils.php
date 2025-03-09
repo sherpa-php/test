@@ -123,6 +123,13 @@ function assertFalse(mixed $value, ?string $error = null): void
     makeAssert(new AssertFalse($value), $success, $error);
 }
 
+/**
+ * Assert the value is in the array.
+ *
+ * @param mixed $needle
+ * @param array $haystack
+ * @param string|null $error (optional) error message
+ */
 function assertIn(mixed $needle, array $haystack, ?string $error = null): void
 {
     ob_start();
@@ -141,6 +148,13 @@ function assertIn(mixed $needle, array $haystack, ?string $error = null): void
     makeAssert(new AssertIn($needle, $haystack), $success, $error);
 }
 
+/**
+ * Prepare assert.
+ *
+ * @param AssertInterface $assert
+ * @param string $success Success message
+ * @param string $error Error message
+ */
 function makeAssert(AssertInterface $assert, string $success, string $error): void
 {
     if ($assert->handle())

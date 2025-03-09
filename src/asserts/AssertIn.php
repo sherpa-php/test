@@ -5,6 +5,13 @@ namespace Sherpa\Test\asserts;
 use Sherpa\Test\asserts\Assert;
 use Sherpa\Test\asserts\AssertInterface;
 
+/**
+ * Assert In
+ * <p>
+ *     Verify if the provided value is in
+ *     the provided array.
+ * </p>
+ */
 class AssertIn
     extends Assert
     implements AssertInterface
