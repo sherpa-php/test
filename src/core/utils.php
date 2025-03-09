@@ -1,6 +1,7 @@
 <?php
 
 use Sherpa\Test\asserts\AssertFalse;
+use Sherpa\Test\asserts\AssertIn;
 use Sherpa\Test\asserts\AssertInterface;
 use Sherpa\Test\asserts\AssertFalsy;
 use Sherpa\Test\asserts\AssertTrue;
@@ -120,6 +121,24 @@ function assertFalse(mixed $value, ?string $error = null): void
         ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> is not falsy.";
 
     makeAssert(new AssertFalse($value), $success, $error);
+}
+
+function assertIn(mixed $needle, array $haystack, ?string $error = null): void
+{
+    ob_start();
+    var_dump($needle);
+    $valueAsString = trim(ob_get_clean());
+
+    $arrayAsString = implode(", ", $haystack);
+
+    $success = "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre>
+                is in ($arrayAsString).";
+
+    $error = $error
+        ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> 
+            is not ($arrayAsString).";
+
+    makeAssert(new AssertIn($needle, $haystack), $success, $error);
 }
 
 function makeAssert(AssertInterface $assert, string $success, string $error): void

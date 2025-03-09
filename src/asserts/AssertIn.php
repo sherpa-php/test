@@ -1,0 +1,26 @@
+<?php
+
+namespace Sherpa\Test\asserts;
+
+use Sherpa\Test\asserts\Assert;
+use Sherpa\Test\asserts\AssertInterface;
+
+class AssertIn
+    extends Assert
+    implements AssertInterface
+{
+    public private(set) array $haystack;
+
+    public function __construct(
+        mixed $needle,
+        array $haystack)
+    {
+        $this->value = $needle;
+        $this->haystack = $haystack;
+    }
+
+    public function handle(): bool
+    {
+        return in_array($this->value, $this->haystack);
+    }
+}
