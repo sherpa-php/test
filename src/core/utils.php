@@ -132,11 +132,11 @@ function assertIn(mixed $needle, array $haystack, ?string $error = null): void
     $arrayAsString = implode(", ", $haystack);
 
     $success = "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre>
-                is in ($arrayAsString).";
+                is in [$arrayAsString].";
 
     $error = $error
         ?? "<pre style='display: inline; font-style: italic; font-weight: 900;'>$valueAsString</pre> 
-            is not ($arrayAsString).";
+            is not in [$arrayAsString].";
 
     makeAssert(new AssertIn($needle, $haystack), $success, $error);
 }
